@@ -59,7 +59,7 @@ impl QueryBus for MyQueryBus {
 }
 
 #[macro_export]
-macro_rules! query_bus_dispatch {
+macro_rules! query_bus_ask {
     ($bus: ident, $handler: ident, $query: ident, $response: ident) => {
         impl QueryBusDispatch<$query, $response> for $bus {
             fn ask(&self, query: $query) -> QueryResult<$response> {

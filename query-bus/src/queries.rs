@@ -1,6 +1,6 @@
 use std::any::TypeId;
 use crate::bus::{BusError, Query, QueryBusDispatch, QueryHandler, MyQueryBus, QueryResponse, QueryResult};
-use crate::{query_bus_dispatch};
+use crate::query_bus_ask;
 
 pub struct MyQuery {
     pub string_data: String,
@@ -54,5 +54,5 @@ impl QueryHandler<MySecondQuery, MySecondQueryResponse> for MySecondQueryHandler
     }
 }
 
-query_bus_dispatch!(MyQueryBus, MyQueryHandler, MyQuery, MyQueryResponse);
-query_bus_dispatch!(MyQueryBus, MySecondQueryHandler, MySecondQuery, MySecondQueryResponse);
+query_bus_ask!(MyQueryBus, MyQueryHandler, MyQuery, MyQueryResponse);
+query_bus_ask!(MyQueryBus, MySecondQueryHandler, MySecondQuery, MySecondQueryResponse);
